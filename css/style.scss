@@ -114,3 +114,19 @@ body {
 		}
 	}
 }
+
+.modal {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	background-color: #fff;
+	padding: 3px 10px;
+	border-radius: 10px;
+	font-weight: 500;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
+
+	&.hidden {
+		opacity: 0;
+	}
+}

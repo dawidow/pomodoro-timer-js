@@ -145,4 +145,21 @@ body {
   border: 1px solid #0045b8;
   background-color: #0045b8;
 }
+
+.modal {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #fff;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal.hidden {
+  opacity: 0;
+}
 /*# sourceMappingURL=style.css.map */

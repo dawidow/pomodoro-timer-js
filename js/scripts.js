@@ -3,7 +3,7 @@ const start = document.querySelector(".timer__start");
 const stop = document.querySelector(".timer__stop");
 const reset = document.querySelector(".timer__reset");
 const work = document.querySelector(".options__work");
-const breakTime = document.querySelector(".options__break");
+const breakBtn = document.querySelector(".options__break");
 
 let seconds = 0,
 	active = false,
@@ -11,11 +11,33 @@ let seconds = 0,
 
 const startTimer = mins => {
 	seconds = mins * 60 || 0;
-	active = !active;
+	active = true;
+	start.disabled = true;
+	stop.disabled = false;
 
 	if (active) {
 		intervalID = setInterval(time, 1000);
 	}
+};
+
+const breakTimer = mins => {
+	seconds = mins * 60 || 0;
+	active = true;
+	start.disabled = false;
+	stop.disabled = true;
+
+	if (active) {
+		intervalID = setInterval(time, 1000);
+	}
+};
+
+const showMessage = () => {
+	const modal = document.querySelector(".modal");
+
+	modal.classList.remove("hidden");
+	setTimeout(() => {
+		modal.classList.add("hidden");
+	}, 5000);
 };
 
 const time = () => {
@@ -27,12 +49,36 @@ const time = () => {
 		sec = `0${sec}`;
 	}
 
-	console.log(seconds);
 	timer.textContent = `${minutes}:${sec}`;
 
 	if (seconds === 0) {
 		clearInterval(intervalID);
+		playSound();
+		showMessage();
 	}
 };
 
-start.addEventListener("click", startTimer(1));
+const playSound = () => {
+	let mp3Source = '<source src="../audio/notification.mp3" type="audio/mpeg">';
+	let oggSource = '<source src="../audio/notification.ogg" type="audio/ogg">';
+	let embedSource =
+		'<embed hidden="true" autostart="true" loop="false" src="../audio/notification.mp3">';
+	document.querySelector(".sound").innerHTML =
+		'<audio autoplay="autoplay">' + mp3Source + oggSource + embedSource + "</audio>";
+};
+
+start.addEventListener(
+	"click",
+	function() {
+		startTimer(1);
+	},
+	false
+);
+
+breakBtn.addEventListener(
+	"click",
+	function() {
+		breakTimer(5);
+	},
+	false
+);
