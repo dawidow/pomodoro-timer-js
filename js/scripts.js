@@ -19,8 +19,6 @@ const startTimer = mins => {
 	}
 
 	active = true;
-	start.disabled = true;
-	stop.disabled = false;
 
 	current.textContent = "WORK";
 
@@ -32,13 +30,13 @@ const startTimer = mins => {
 const breakTimer = mins => {
 	resetTime();
 	clearInterval(intervalID);
+
 	if (!active) {
 		timer.textContent = "5:00";
 		seconds = mins * 60 || 0;
 	}
+
 	active = true;
-	start.disabled = false;
-	stop.disabled = false;
 
 	current.textContent = "BREAK";
 
@@ -51,14 +49,11 @@ const resetTime = () => {
 	clearInterval(intervalID);
 	timer.textContent = "25:00";
 	active = false;
-	start.disabled = false;
-	stop.disabled = true;
 	current.textContent = "-";
 };
 
 const stopTime = () => {
 	clearInterval(intervalID);
-	start.disabled = false;
 	current.textContent = "PAUSE";
 };
 
