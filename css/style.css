@@ -12,6 +12,9 @@ body {
   padding: 0;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
+  min-height: 100vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#2788f4), to(#0045b8));
+  background-image: linear-gradient(to right bottom, #2788f4, #0045b8);
 }
 
 .container {
@@ -30,5 +33,75 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 100vh;
+}
+
+.container .timer {
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+.container .timer__clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .timer__time {
+  font-size: 4.5em;
+  margin: 0 0 30px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.container .timer__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .timer__buttons button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 7px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: 0px 3px 11px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 11px -5px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container .timer__buttons button:hover {
+  background-color: #0045b8;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.container .timer__start {
+  background-color: #1e5cc6;
+}
+
+.container .timer__stop {
+  background-color: #2267d0;
+}
+
+.container .timer__reset {
+  background-color: #2e82ea;
 }
 /*# sourceMappingURL=style.css.map */
