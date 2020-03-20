@@ -41,6 +41,10 @@ body {
   margin: 0 0 10px;
 }
 
+.container .timer__welcome-message {
+  text-align: center;
+}
+
 .container .timer__clock {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,5 +107,40 @@ body {
 
 .container .timer__reset {
   background-color: #2e82ea;
+}
+
+.container .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.container .options button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  background: none;
+  color: #fff;
+  border-radius: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container .options button:hover {
+  border: 1px solid #0045b8;
+  background-color: #0045b8;
 }
 /*# sourceMappingURL=style.css.map */

@@ -30,6 +30,10 @@ body {
 		color: $primary_color;
 		margin: 0 0 10px;
 
+		&__welcome-message {
+			text-align: center;
+		}
+
 		&__clock {
 			display: flex;
 			flex-direction: column;
@@ -79,6 +83,32 @@ body {
 
 		&__reset {
 			background-color: #2e82ea;
+		}
+	}
+
+	.options {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 20px;
+
+		button {
+			margin: 0 5px;
+			padding: 10px 20px;
+			border: 1px solid #fff;
+			background: none;
+			color: #fff;
+			border-radius: 7px;
+			font-weight: 700;
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+				border: 1px solid $btn_hover_color;
+				background-color: $btn_hover_color;
+			}
 		}
 	}
 }
