@@ -10,7 +10,10 @@ let seconds = 0,
 	intervalID;
 
 const startTimer = mins => {
+	clearInterval(intervalID);
+
 	if (!active) {
+		timer.textContent = "25:00";
 		seconds = mins * 60 || 0;
 	}
 
@@ -24,7 +27,12 @@ const startTimer = mins => {
 };
 
 const breakTimer = mins => {
-	seconds = mins * 60 || 0;
+	resetTime();
+	clearInterval(intervalID);
+	if (!active) {
+		timer.textContent = "5:00";
+		seconds = mins * 60 || 0;
+	}
 	active = true;
 	start.disabled = false;
 	stop.disabled = true;
@@ -86,7 +94,7 @@ const playSound = () => {
 start.addEventListener(
 	"click",
 	function() {
-		startTimer(1);
+		startTimer(25);
 	},
 	false
 );
@@ -95,10 +103,18 @@ reset.addEventListener("click", resetTime, false);
 work.addEventListener(
 	"click",
 	function() {
+		resetTime();
+	},
+	false
+);
+work.addEventListener(
+	"click",
+	function() {
 		startTimer(25);
 	},
 	false
 );
+
 breakBtn.addEventListener(
 	"click",
 	function() {
