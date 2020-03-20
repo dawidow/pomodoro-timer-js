@@ -10,7 +10,10 @@ let seconds = 0,
 	intervalID;
 
 const startTimer = mins => {
-	seconds = mins * 60 || 0;
+	if (!active) {
+		seconds = mins * 60 || 0;
+	}
+
 	active = true;
 	start.disabled = true;
 	stop.disabled = false;
@@ -29,6 +32,19 @@ const breakTimer = mins => {
 	if (active) {
 		intervalID = setInterval(time, 1000);
 	}
+};
+
+const resetTime = () => {
+	clearInterval(intervalID);
+	timer.textContent = "25:00";
+	active = false;
+	start.disabled = false;
+	stop.disabled = true;
+};
+
+const stopTime = () => {
+	clearInterval(intervalID);
+	start.disabled = false;
 };
 
 const showMessage = () => {
@@ -70,11 +86,19 @@ const playSound = () => {
 start.addEventListener(
 	"click",
 	function() {
-		startTimer(1);
+		startTimer(25);
 	},
 	false
 );
-
+stop.addEventListener("click", stopTime, false);
+reset.addEventListener("click", resetTime, false);
+work.addEventListener(
+	"click",
+	function() {
+		startTimer(25);
+	},
+	false
+);
 breakBtn.addEventListener(
 	"click",
 	function() {
