@@ -86,7 +86,7 @@ const playSound = () => {
 start.addEventListener(
 	"click",
 	function() {
-		startTimer(25);
+		startTimer(1);
 	},
 	false
 );
