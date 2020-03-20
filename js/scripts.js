@@ -38,7 +38,7 @@ const breakTimer = mins => {
 	}
 	active = true;
 	start.disabled = false;
-	stop.disabled = true;
+	stop.disabled = false;
 
 	current.textContent = "BREAK";
 
