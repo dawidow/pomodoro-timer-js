@@ -112,7 +112,12 @@ body {
 		}
 	}
 
-	.description {
+	.currently__mode {
+		font-weight: 700;
+	}
+
+	.description,
+	.currently {
 		font-size: 13px;
 		color: $secondary_color;
 		text-align: center;

@@ -4,6 +4,7 @@ const stop = document.querySelector(".timer__stop");
 const reset = document.querySelector(".timer__reset");
 const work = document.querySelector(".options__work");
 const breakBtn = document.querySelector(".options__break");
+const current = document.querySelector(".currently__mode");
 
 let seconds = 0,
 	active = false,
@@ -21,6 +22,8 @@ const startTimer = mins => {
 	start.disabled = true;
 	stop.disabled = false;
 
+	current.textContent = "WORK";
+
 	if (active) {
 		intervalID = setInterval(time, 1000);
 	}
@@ -37,6 +40,8 @@ const breakTimer = mins => {
 	start.disabled = false;
 	stop.disabled = true;
 
+	current.textContent = "BREAK";
+
 	if (active) {
 		intervalID = setInterval(time, 1000);
 	}
@@ -48,11 +53,13 @@ const resetTime = () => {
 	active = false;
 	start.disabled = false;
 	stop.disabled = true;
+	current.textContent = "-";
 };
 
 const stopTime = () => {
 	clearInterval(intervalID);
 	start.disabled = false;
+	current.textContent = "PAUSE";
 };
 
 const showMessage = () => {

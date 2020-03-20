@@ -144,7 +144,12 @@ body {
   background-color: #0045b8;
 }
 
-.container .description {
+.container .currently__mode {
+  font-weight: 700;
+}
+
+.container .description,
+.container .currently {
   font-size: 13px;
   color: #bfcbeb;
   text-align: center;
